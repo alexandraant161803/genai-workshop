@@ -23,7 +23,3 @@ npm run dev
 ```
 
 Now the project should be running on `localhost:5173`.
-
-### What is this config command?
-
-As this project uses the Netlight design system, which is consumed via a private NPM registry, we need to set a valid token. To keep things simple, I (Jón) created a token for this workshop specifically, which will expire in mid April. If you want to run this locally and the token doesn't work, please check out [these instructions](https://nds-dev.edgez.live/?path=/docs/doc-installation-usage--docs).
