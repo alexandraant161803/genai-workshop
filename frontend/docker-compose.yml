@@ -1,0 +1,11 @@
+services:
+  node-app:
+    build: .
+    ports:
+      - '4173:4173'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: npm run preview

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: [uvicorn, gen_ai_workshop_api.main:app, --host, "0.0.0.0", --reload]
+    ports:
+      - "8000:8000"
+    networks:
+      - backend_network
+    volumes:
+      - "./backend:/usr/src/app"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    networks:
+      - frontend_network
+
+networks:
+  backend_network:
+    driver: bridge
+  frontend_network:
+    driver: bridge

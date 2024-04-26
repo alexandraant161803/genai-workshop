@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 400;
+  src: url("/src/assets/fonts/proximanova-regular-webfont.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 500;
+  src: url("/src/assets/fonts/proximanova-medium-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 600;
+  src: url("/src/assets/fonts/proximanova-semibold-webfont.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 700;
+  src: url("/src/assets/fonts/proximanova-bold-webfont.woff2") format("woff2");
+}
+:root {
+  font-family: "ProximaNova", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  --lilac-primary: #6559ff;
+  --lilac-secondary: #9d8dff;
+}
+
+._button_bms8y_67 {
+  background-color: var(--lilac-primary);
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* background-image: linear-gradient(
+    to right bottom,
+    var(--lilac-primary),
+    var(--lilac-secondary)
+  ); */
+}
+
+.base-background {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--lilac-primary),
+    var(--lilac-secondary)
+  );
+}
