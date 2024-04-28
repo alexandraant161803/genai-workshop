@@ -1,4 +1,5 @@
 import uvicorn
+import logging
 import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -36,16 +37,20 @@ async def get_recipe(recipe_url: str) -> str | Recipe:
     response = await ask_chatgpt(system_message=SYSTEM_MESSAGE, user_message=user_message)
 
     try:
-        print(f"Here is the response from the chatbot: {response}")
         # Parse JSON string to a dictionary
         parsed_json = json.loads(response)
-        # Convert dictionary to Pydantic model instance
+          # Convert dictionary to Pydantic model instance
         recipe = Recipe.model_validate(parsed_json)
         return recipe
-    except:
+    except json.JSONDecodeError as e:
+        # Logg JSON decoding error but still return response
+        logging.error(f"Failed to parse JSON response: {e}")
         return response
-    
-
+    except Exception as e:
+        # Handle other exceptions, such as validation errors, but still return response 
+        logging.error(f"Failed to convert response to Recipe object: {e}")
+        return response
+  
 @app.get("/healthz")
 @app.get("/")
 async def health_check():

@@ -1,20 +1,16 @@
 import { Button } from "@netlight-design-system/nds-react";
-import { OutputProps } from "../types/types";
+import { OutputProps, Recipe } from "../types/types";
 
 function Output({ data, onBack }: OutputProps) {
   console.log(data);
 
-  if (
-    data?.ingredients === null ||
-    data?.steps === null ||
-    data?.total_time_minutes === null ||
-    data?.person_count === null ||
-    data?.name === null
-  ) {
+  if (!checkRecipeValidity(data)) 
+   {
     return (
       <div>
         <h1 className="text-4xl font-bold">Almost there - please try again :) </h1>
-        <div>{JSON.stringify(data)}</div>
+        <div>{JSON.stringify(data)}</div>      
+        <Button onClick={onBack}>Back</Button>
       </div>
     );
   }
@@ -52,3 +48,15 @@ function Output({ data, onBack }: OutputProps) {
   );
 }
 export default Output;
+
+export function checkRecipeValidity(recipe: Recipe | undefined): boolean {
+  if (!recipe) return false;
+  const requiredFields: Array<keyof Recipe> = [
+    "ingredients",
+    "steps",
+    "total_time_minutes",
+    "person_count",
+    "name"
+  ];
+  return requiredFields.every(field => recipe[field] !== null && recipe[field] !== undefined);
+}
