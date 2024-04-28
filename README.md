@@ -5,6 +5,10 @@ Welcome to this GenAI Workshop! To get you up and running smoothly, we've prepar
 
 First, we need to get the workshop materials onto your computer by cloning our code repository.
 
+### What you need:
+- A terminal application, which allows you to type and execute text-based commands.
+- Git installed (if you don't have it, download it [here](https://git-scm.com/downloads)).
+
 ### Steps:
 
 1. **Open Your Terminal:**
@@ -56,9 +60,26 @@ We'll use Docker to automatically set up and connect the front-end and back-end 
 
 **Congratulations!** You've successfully set up your environment for the GenAI Workshop. If you encounter any issues, don't hesitate to ask for help.
 
-### Ready to Start Coding!
+### Ready to Start!
+- Your primary task is to write prompts that will be used to interact with the Azure OpenAI API. You can find templates for these located in: `backend/gen_ai_workshop_ai/prompts.py`. This is where you should make changes. 
+- When you make changes and save the file, you should see the updates reflected on the front-end interface when you click "Get recipe".
+- These prompts are crucial because they instruct the AI on what response you are expecting. You fortunately do not need to worry about the underlying logic of scraping websites or processing the information—that's all handled for you! Here's what you need to know about the context you have available:
 
-Explore the backend code by examining the file located at `backend/gen_ai_workshop_ai/prompts.py`. When you make changes and save the file, you should see the updates reflected on the front-end interface when you click "Get recipe".
+### What is `recipe_information`?
+
+When you provide a recipe URL to the `/recipe` API endpoint that we've created, the `fetch_and_transform_content` function goes to work. It retrieves data from the recipe website and transforms it into a structured format we refer to as `recipe_information`. This may include:
+
+- A list of ingredients
+- Preparation steps
+- Cooking methods or techniques mentioned in the recipe
+- Any other relevant data extracted from the recipe page
+
+### How is `recipe_information` used?
+
+The `recipe_information` is what you will use to create a personalized prompt that helps to guide the AI's response in a meaningful way. For instance, you might use that information to ask the AI to suggest alternatives to certain ingredients, provide additional cooking instructions, or even get creative with different recipe variations.
+
+When constructing the `USER_MESSAGE`, the `recipe_information` is inserted into the prompt where the placeholder `{recipe_information}` is located. This formatted prompt is then sent to the Azure OpenAI API through the `ask_chatgpt` function.
+
 
 ### Recipe URLs for Testing:
 

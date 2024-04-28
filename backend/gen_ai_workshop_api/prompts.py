@@ -1,59 +1,34 @@
-"""The LLM prompts used within the project."""
+"""
+Your task is to write effective prompts that will be used to communicate with Azure's OpenAI API.
+An effective prompt should be clear, concise, and provide enough context to the AI for generating a relevant response.
 
-# Both system messages work :) 
+Below you will find template strings for SYSTEM_MESSAGE and USER_MESSAGE.
+These templates serve as containers for the text that will be sent to the API.
 
-SYSTEM_MESSAGE: str = """
-You will be given information and your goal is to:
-1. Extract the recipe information from it
-2. Format the recipe according to the JSON structure that corresponds exactly to the pydantic model given below. 
+You will only need to modify the content within the triple quotes (''' ''') of these variables.
 
-
-class Ingredient(BaseModel):
-    name: str
-    unit: str
-    quantity: str
-
-
-class Recipe(BaseModel):
-    name: str
-    ingredients: [List[Ingredient]]
-    steps: [List[str]]
-    total_time_minutes: str
-    person_count: str
-    
+Tips for writing good prompts:
+1. Be specific about what you want the AI model to do.
+2. Provide clear instructions or questions.
+3. Include relevant context or information that will help the AI understand the task.
+4. Keep the language simple and direct.
+5. Test different versions to see which prompts give you better results.
 """
 
-# SYSTEM_MESSAGE: str =  """
-# Based on the recipe details provided, please format the recipe according to the example JSON structure shown below. Use the exact format, including the arrangement of the elements and punctuation.
+# TODO: Write a prompt for the system message. 
+# This is what the AI will see as the setup for the interaction.
+# Example: "You are a helpful assistant who can provide detailed recipe information."
+# Tip: Explain the exact format you would like the output in (have a look at the Recipe class in models.py). It can be helpful to provide an example of an expected output.
+SYSTEM_MESSAGE: str = """    
+# Your system prompt here
+"""
 
-# ===== EXAMPLE START =====
-# {
-#   "name": "Recipe Name",
-#   "ingredients": [
-#     {
-#       "name": "Ingredient Name",
-#       "unit": "Unit of Measurement",
-#       "quantity": "Quantity"
-#     }
-#     // Add more ingredients as needed
-#   ],
-#   "steps": [
-#     "Step 1 description.",
-#     "Step 2 description."
-#     // Add more steps as needed
-#   ],
-#   "total_time_minutes": "Total Time in Minutes",
-#   "person_count": "Number of Servings"
-# }
-
-# ===== EXAMPLE END =====
-
-# Note: Replace 'Recipe Name', 'Ingredient Name', 'Unit of Measurement', 'Quantity', 'Step description', 'Total Time in Minutes', and 'Number of Servings' with the specific details from the provided recipe information.
-# """
-
-USER_MESSAGE: str = """
-Based on the provided information extract the recipe information and format it according to the specified JSON structure. Ensure to include all necessary details such as ingredients, quantity, steps, total cooking time, and servings.
-   
+# TODO: Write a prompt for the user message. 
+# This should include any information the API needs to generate a response to a user's request.
+# The {recipe_information} placeholder will be replaced with actual content from the scraped recipe when the code runs.
+USER_MESSAGE: str = """   
+# Your user prompt here
 Information: {recipe_information}
-
 """
+
+# Remember to check the output and tweak your prompts as needed. This iterative process will help you create prompts that effectively communicate with the API and generate the best possible responses.

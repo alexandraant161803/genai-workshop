@@ -41,7 +41,6 @@ async def get_recipe(recipe_url: str) -> str | Recipe:
         parsed_json = json.loads(response)
         # Convert dictionary to Pydantic model instance
         recipe = Recipe.model_validate(parsed_json)
-        print(recipe)
         return recipe
     except:
         return response
