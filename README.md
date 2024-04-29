@@ -53,7 +53,9 @@ We'll use Docker to automatically set up and connect the front-end and back-end 
    - Type `cd path-to-genai-workshop-folder` into your terminal, replacing "path-to-genai-workshop-folder" with the actual path where your workshop folder is located (e.g., `cd /Users/yourusername/Documents/codepub/genai-workshop`), and press Enter.
 3. **Start the Project with Docker:**
    - Copy and paste `docker-compose up --build` into your terminal and press Enter.
-   - Wait for the process to complete. This may take a few minutes.
+   - Wait for the process to complete. This may take a few minutes. It will look something like this:
+    <img width="573" alt="image" src="https://github.com/alexandraant161803/genai-workshop/assets/140720562/80698b4d-5284-4b62-868f-884eb120cb33">
+
 4. **Access the Frontend:**
    - Open a web browser and go to `http://localhost:4137` to view the workshop's front-end interface.
    - Optionally, you can also check the back-end documentation at `http://localhost:8000/docs`.
