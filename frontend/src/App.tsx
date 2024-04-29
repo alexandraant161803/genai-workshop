@@ -8,7 +8,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex items-center justify-center w-screen p-6 overflow-auto base-background">
+      <div className="flex flex-col items-center justify-center w-screen h-screen p-6">
         <RecipeMain />
       </div>
     </QueryClientProvider>

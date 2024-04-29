@@ -42,17 +42,16 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* background-image: linear-gradient(
-    to right bottom,
-    var(--lilac-primary),
-    var(--lilac-secondary)
-  ); */
-}
-
-.base-background {
-  background-image: linear-gradient(
+  background: linear-gradient(
     to right bottom,
     var(--lilac-primary),
     var(--lilac-secondary)
   );
 }
+
+/* .base-background {
+  /* background-image: linear-gradient(
+     to right bottom,
+    var(--lilac-primary),
+    var(--lilac-secondary)
+  ); */ 

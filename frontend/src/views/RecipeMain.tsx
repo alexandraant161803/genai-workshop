@@ -28,7 +28,7 @@ function RecipeMain() {
   if (isLoading) {
     return (
       <>
-        <div className="flex flex-col justify-center items-center bg-white max-w-[50vw] rounded-md  p-4 gap-4">
+        <div className="flex flex-col justify-center items-center bg-white max-w-[50vw] rounded-md p-4 gap-4">
           <img src={egg} className="w-16 h-auto " />
         </div>
       </>
@@ -38,14 +38,14 @@ function RecipeMain() {
   if (recipeData) {
     return (
       <>
-        <div className="flex flex-col justify-center items-center bg-white max-w-[50vw]   rounded-md  p-4 gap-4">
+        <div className="flex flex-col justify-center items-center bg-white max-w-[50vw] rounded-md p-6 gap-2 overflow-scroll">
           <Output data={recipeData} onBack={onBack}></Output>
         </div>
       </>
     );
   }
   return (
-    <div className="flex flex-col justify-center items-center bg-white max-w-[50vw] rounded-md  p-4 gap-4">
+    <div className="flex flex-col justify-center items-center bg-white max-w-[50vw] rounded-md p-4 gap-4">
       <img src={robot} className="w-32 h-auto" />
       <h1 className="text-4xl font-bold text-primary">Chatatouille</h1>
       <TextField
