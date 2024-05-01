@@ -1,16 +1,21 @@
 from openai import AsyncAzureOpenAI
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
 
 async def ask_chatgpt(system_message,user_message) -> str:
     client = AsyncAzureOpenAI(
-        api_key="b54994dc983a426eb0447d065fb84f1a",
+        api_key=os.getenv('API_KEY'),
         api_version="2023-12-01-preview",
         azure_endpoint="https://oai-codepub.openai.azure.com/",
-        azure_deployment= "gpt-35-turbo"
+        azure_deployment= "gpt-4"
     )
 
     response = await client.chat.completions.create(
-        temperature=0.5, #TODO: play around with this parameter. Can be a number between 0.0-1.0. 
-        model="gpt-3.5-turbo",
+        temperature=0.5,
+        model="gpt-4",
         messages=[
             {
                 "role": "system",
