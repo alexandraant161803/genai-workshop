@@ -20,7 +20,7 @@ First, we need to get the workshop materials onto your computer by cloning our c
 2. **Create a New Folder and Navigate There:**
    - Decide on a location where you want to store your workshop materials. For example, you can create a new folder in your "Documents" directory.
    - Type `cd` followed by the path to your chosen location, then press Enter.
-     - Example: `cd /Users/yourusername/Documents/codepub`
+     - Example: `cd /Users/yourusername/Documents/workshop`
 3. **Clone the Repository:**
    - In your terminal, paste the following command: 
      - `git clone https://github.com/alexandraant161803/genai-workshop.git`
